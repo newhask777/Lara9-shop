@@ -3,6 +3,8 @@
 use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Tags;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +27,17 @@ Route::group(['prefix' => 'categories'], function() {
     Route::patch('/{category}', \App\Http\Controllers\Category\UpdateController::class)->name('category.update');
     Route::delete('/{category}', \App\Http\Controllers\Category\DeleteController::class)->name('category.delete');
 });
+
+// Route::get('/tags', \App\Http\Controllers\Tag\IndexController::class)->name('tag.index');
+
+Route::group(['prefix' => 'tags'], function() {
+    Route::get('/', \App\Http\Controllers\Tag\IndexController::class)->name('tag.index');
+    Route::get('/create', \App\Http\Controllers\Tag\CreateController::class)->name('tag.create');
+    Route::post('/', \App\Http\Controllers\Tag\StoreController::class)->name('tag.store');
+    Route::get('/{tag}/edit', \App\Http\Controllers\Tag\EditController::class)->name('tag.edit');
+    Route::get('/{tag}', \App\Http\Controllers\Tag\ShowController::class)->name('tag.show');
+    Route::patch('/{tag}', \App\Http\Controllers\Tag\UpdateController::class)->name('tag.update');
+    Route::delete('/{tag}', \App\Http\Controllers\Tag\DeleteController::class)->name('tag.delete');
+});
+
 
