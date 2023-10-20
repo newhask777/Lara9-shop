@@ -10,6 +10,6 @@ class ShowController extends Controller
 {
     public function __invoke(Tag $tag)
     {
-        return view('tag.show', compact('tag'));
+        return view('tags.show', compact('tag'));
     }
 }

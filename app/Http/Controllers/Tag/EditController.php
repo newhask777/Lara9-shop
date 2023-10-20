@@ -10,7 +10,7 @@ class EditController extends Controller
 {
     public function __invoke(Tag $tag)
     {
-        return view('tag.edit', compact('tag'));
+        return view('tags.edit', compact('tag'));
         
     }
 }
