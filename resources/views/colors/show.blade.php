@@ -27,7 +27,7 @@
                     <div class="card">
                         <div class="card-header d-flex p-3">
                             <div class="mr-3">
-                                <a href="{{ route('color.edit', $color->id) }}" class="btn btn-primary">Редактировать Категорию</a>
+                                <a href="{{ route('color.edit', $color->id) }}" class="btn btn-primary">Редактировать Цвет</a>
                             </div>
                             <form action="{{ route('color.delete', $color->id) }}" method="POST">
                                 @csrf

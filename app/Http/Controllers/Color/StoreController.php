@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Color;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Color\StoreRequest;
 use App\Models\Color;
 use Illuminate\Http\Request;
 
