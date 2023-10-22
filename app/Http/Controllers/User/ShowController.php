@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ShowController extends Controller
 {
-    public function __invoke(User $users)
+    public function __invoke(User $user)
     {
         return view('users.show', compact('user'));
     }
