@@ -34,7 +34,13 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Наименование</th>
+                                        <th>Имя</th>
+                                        <th>Фамилия</th>
+                                        <th>Отчество</th>
+                                        <th>Почта</th>
+                                        <th>Возраст</th>
+                                        <th>Пол</th>
+                                        <th>Адрес</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,7 +48,13 @@
                                     @foreach ($users as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
-                                            <td><a href="{{ route('tag.show', $user->id) }}">{{ $user->title }}</a></td>
+                                            <td><a href="{{ route('user.show', $user->id) }}">{{ $user->name }}</a></td>
+                                            <td>{{ $user->surname }}</td>
+                                            <td>{{ $user->patronymic }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->age }}</td>
+                                            <td>{{ $user->gender }}</td>
+                                            <td>{{ $user->address }}</td>
                                         </tr>
                                     @endforeach
 

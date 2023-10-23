@@ -43,12 +43,12 @@
 
                                     <tr>
                                         <td>ID</td>
-                                        <td>{{ $category->id }}</a>
+                                        <td>{{ $category->id }}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Наименование</td>
-                                        <td>{{ $category->title }}</a>
+                                        <td>{{ $category->title }}
                                         </td>
                                     </tr>
 
