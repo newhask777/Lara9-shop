@@ -53,7 +53,7 @@
                                             <td>{{ $user->patronymic }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->age }}</td>
-                                            <td>{{ $user->gender }}</td>
+                                            <td>{{ $user->genderTitle }}</td>
                                             <td>{{ $user->address }}</td>
                                         </tr>
                                     @endforeach
