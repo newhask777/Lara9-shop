@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('preview_image');
             $table->integer('price');
             $table->integer('count');
-            $table->boolean('is_published');
+            $table->boolean('is_published')->default(true);
             
             $table->foreignId('user_id')->nullable()->index()->constrained('users');
             $table->foreignId('category_id')->nullable()->index()->constrained('categories');
