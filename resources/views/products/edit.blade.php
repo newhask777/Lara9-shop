@@ -23,38 +23,48 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{ route('product.update', $user->id) }}" method="POST">
+                <form action="{{ route('product.update', $product->id) }}" method="POST">
                     @method('patch')
                     @csrf
                     
                     <div class="form-group">
-                        <input type="text" value="{{ $user->name ?? old('name') }}" name="name" class="form-control" placeholder="Имя">
+                        <input type="text" value="{{ $product->name ?? old('name') }}" name="name" class="form-control" placeholder="Название">
                       </div>
         
                       <div class="form-group">
-                        <input type="text" value="{{ $user->surname ?? old('surname') }}" name="surname" class="form-control" placeholder="Фамилия">
+                        <input type="text" value="{{ $product->description ?? old('description') }}" name="description" class="form-control" placeholder="Описание">
                       </div>
         
                       <div class="form-group">
-                        <input type="text" value="{{ $user->patronymic ?? old('patronymic') }}" name="patronymic" class="form-control" placeholder="Отчество">
+                        <input type="text" value="{{ $product->content ?? old('content') }}" name="content" class="form-control" placeholder="Контент">
                       </div>
         
                       <div class="form-group">
-                        <input type="text" value="{{ $user->age ?? old('age') }}" name="age" class="form-control" placeholder="Возраст">
+                        <input type="text" value="{{ $product->preview_image ?? old('preview_image') }}" name="preview_image" class="form-control" placeholder="Картинка">
                       </div>
         
                       <div class="form-group">
-                        <input type="text" value="{{ $user->address ?? old('address') }}" name="address" class="form-control" placeholder="Адрес">
-                      </div>
-        
-                      <div class="form-group">
-                        <select name="gender" id="exampleSelectBorder" class="custom-select form-control">
-                          <option disabled selected>Пол</option>
-                          <option {{ $user->gender || old('gender') == 1 ? ' selected': ''}} value="1">Мужской</option>
-                          <option {{ $user->gender || old('gender') == 2 ? ' selected': ''}} value="2">Женский</option>
-                        </select>
+                        <input type="text" value="{{ $product->price ?? old('price') }}" name="price" class="form-control" placeholder="Цена">
                       </div>
 
+                      <div class="form-group">
+                        <input type="text" value="{{ $product->count ?? old('count') }}" name="count" class="form-control" placeholder="Кол-во">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Multiple</label>
+                        <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                          <option>Alabama</option>
+                          <option>Alaska</option>
+                          <option>California</option>
+                          <option>Delaware</option>
+                          <option>Tennessee</option>
+                          <option>Texas</option>
+                          <option>Washington</option>
+                        </select>
+                      </div>
+        
+                    
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Редактировать">
                     </div>

@@ -34,13 +34,13 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Имя</th>
-                                        <th>Фамилия</th>
-                                        <th>Отчество</th>
-                                        <th>Почта</th>
-                                        <th>Возраст</th>
-                                        <th>Пол</th>
-                                        <th>Адрес</th>
+                                        <th>Название</th>
+                                        <th>Описание</th>
+                                        <th>Контент</th>
+                                        <th>Картинка</th>
+                                        <th>Цена</th>
+                                        <th>Кол-во</th>
+                                        <th>Категория</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,13 +48,13 @@
                                     @foreach ($products as $product)
                                         <tr>
                                             <td>{{ $product->id }}</td>
-                                            <td><a href="{{ route('user.show', $product->id) }}">{{ $product->title }}</a></td>
-                                            {{-- <td>{{ $user->surname }}</td>
-                                            <td>{{ $user->patronymic }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->age }}</td>
-                                            <td>{{ $user->genderTitle }}</td>
-                                            <td>{{ $user->address }}</td> --}}
+                                            <td><a href="{{ route('product.show', $product->id) }}">{{ $product->name }}</a></td>
+                                            <td>{{ $product->description }}</td>
+                                            <td>{{ $product->content }}</td>
+                                            <td>{{ $product->preview_image }}</td>
+                                            <td>{{ $product->price }}</td>
+                                            <td>{{ $product->count }}</td>
+                                            <td>{{ $product->category_id }}</td>
                                         </tr>
                                     @endforeach
 

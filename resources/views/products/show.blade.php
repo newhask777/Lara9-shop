@@ -47,31 +47,31 @@
                                     </tr>
                                     <tr>
                                         <td>Имя</td>
-                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $product->name }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Фамилия</td>
-                                        <td>{{ $user->surname }}</td>
+                                        <td>Описание</td>
+                                        <td>{{ $product->description }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Отчество</td>
-                                        <td>{{ $user->patronymic }}</td>
+                                        <td>Контент</td>
+                                        <td>{{ $product->content }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Почта</td>
-                                        <td>{{ $user->email }}</td>
+                                        <td>Картинка</td>
+                                        <td>{{ $product->preview_image }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Возраст</td>
-                                        <td>{{ $user->age }}</td>
+                                        <td>Цена</td>
+                                        <td>{{ $product->price }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Пол</td>
-                                        <td>{{ $user->genderTitle }}</td>
+                                        <td>Кол-во</td>
+                                        <td>{{ $product->count }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Адресс</td>
-                                        <td>{{ $user->address }}</td>
+                                        <td>Категория</td>
+                                        <td>{{ $product->category_id }}</td>
                                     </tr>
                                 </tbody>
                             </table>
