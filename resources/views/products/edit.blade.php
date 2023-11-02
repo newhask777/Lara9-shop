@@ -40,10 +40,6 @@
                       </div>
         
                       <div class="form-group">
-                        <input type="text" value="{{ $product->preview_image ?? old('preview_image') }}" name="preview_image" class="form-control" placeholder="Картинка">
-                      </div>
-        
-                      <div class="form-group">
                         <input type="text" value="{{ $product->price ?? old('price') }}" name="price" class="form-control" placeholder="Цена">
                       </div>
 
@@ -52,15 +48,46 @@
                       </div>
 
                       <div class="form-group">
-                        <label>Multiple</label>
-                        <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                          <option>Alabama</option>
-                          <option>Alaska</option>
-                          <option>California</option>
-                          <option>Delaware</option>
-                          <option>Tennessee</option>
-                          <option>Texas</option>
-                          <option>Washington</option>
+                        <label for="exampleInputFile">Картинка</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                          </div>
+                        </div>
+                      </div>
+                      {{-- Categories --}}
+                      <div class="form-group">
+                        <label>Категория</label>
+                        <select name="category_id" class="form-control select2" style="width: 100%;">
+                          <option selected="selected" disabled value="{{ $product->category_id ?? old('category_id') }}">{{ $product->category_id }}</option>
+        
+                          @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                          @endforeach
+                          
+                        </select>
+                      </div>
+                      {{-- Tags --}}
+                      <div class="form-group">
+                        <label>Тэги</label>
+                        <select name="tags[]" class="tags" multiple="multiple" data-placeholder="Выберите тег" style="width: 100%;">
+        
+                          @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+                          @endforeach
+                         
+                        </select>
+                      </div>
+        
+                      <div class="form-group">
+                        <label>Цвет</label>
+                        <select name="colors[]" class="colors" multiple="multiple" data-placeholder="Выберите цвет" style="width: 100%;">
+        
+                          @foreach ($colors as $color)
+                            <option value="{{ $color->id }}">{{ $color->title }}</option>
+                          @endforeach
+                          
                         </select>
                       </div>
         

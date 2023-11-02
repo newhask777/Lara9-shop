@@ -59,6 +59,7 @@
                                     </tr>
                                     <tr>
                                         <td>Картинка</td>
+                                        <td><img src="{{ $product->preview_image }}" alt=""></td>
                                         <td>{{ $product->preview_image }}</td>
                                     </tr>
                                     <tr>
