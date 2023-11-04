@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Group;
 use App\Models\Product;
 use App\Models\Tag;
 use App\Models\Color;
@@ -16,7 +17,8 @@ class EditController extends Controller
         $tags = Tag::all();
         $colors = Color::all();
         $categories = Category::all();
-        return view('products.edit', compact('tags','colors', 'categories', 'product'));
+        $groups = Group::all();
+        return view('products.edit', compact('tags','colors', 'categories', 'product', 'groups'));
         
     }
 }

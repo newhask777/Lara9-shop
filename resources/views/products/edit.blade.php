@@ -68,6 +68,18 @@
                           
                         </select>
                       </div>
+                      {{-- Group --}}
+                      <div class="form-group">
+                        <label>Группа</label>
+                        <select name="category_id" class="form-control select2" style="width: 100%;">
+                          <option selected="selected" disabled value="{{ $product->group_id ?? old('group_id') }}">{{ $product->group_id }}</option>
+        
+                          @foreach ($groups as $group)
+                            <option value="{{ $group->id }}">{{ $group->title }}</option>
+                          @endforeach
+                          
+                        </select>
+                      </div>
                       {{-- Tags --}}
                       <div class="form-group">
                         <label>Тэги</label>

@@ -41,6 +41,7 @@
                                         <th>Цена</th>
                                         <th>Кол-во</th>
                                         <th>Категория</th>
+                                        <th>Группа</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,6 +56,7 @@
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->count }}</td>
                                             <td>{{ $product->category_id }}</td>
+                                            <td>{{ $product->group_id }}</td>
                                         </tr>
                                     @endforeach
 
