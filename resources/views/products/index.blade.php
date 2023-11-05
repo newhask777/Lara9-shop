@@ -55,7 +55,7 @@
                                             <td>{{ $product->preview_image }}</td>
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->count }}</td>
-                                            <td>{{ $product->category_id }}</td>
+                                            <td>{{ $product->category->title }}</td>
                                             <td>{{ $product->group_id }}</td>
                                         </tr>
                                     @endforeach
