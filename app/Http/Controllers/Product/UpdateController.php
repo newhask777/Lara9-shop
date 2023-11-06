@@ -18,7 +18,7 @@ class UpdateController extends Controller
 
         if(isset($data["preview_image"]) && $data["preview_image"] != null)
         {
-            $data['preview_image'] = Storage::disk('public')->put('images', $data['preview_image']); 
+            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
         }
         else
         {
@@ -26,7 +26,7 @@ class UpdateController extends Controller
         }
 
         // dd($data['preview_image']);
-        
+
         if(isset($data['tags']))
         {
             $tagsIds = $data['tags'];
@@ -54,8 +54,8 @@ class UpdateController extends Controller
                 ]);
             }
         }
-       
-        
+
+
         unset($data['tags'], $data['colors']);
 
         $product->update($data);

@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-        
+
             <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
 
@@ -47,12 +47,42 @@
               <div class="form-group">
                 <input type="text" value="{{ old('count') }}" name="count" class="form-control" placeholder="Кол-во">
               </div>
-
+              {{-- Product Images --}}
               <div class="form-group">
                 <label for="exampleInputFile">Картинка</label>
                 <div class="input-group">
                   <div class="custom-file">
                     <input name="preview_image" type="file" class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputFile">Картинка 1</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputFile">Картинка 2</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputFile">Картинка 3</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input name="product_images[]" type="file" class="custom-file-input" id="exampleInputFile">
                     <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                   </div>
                 </div>
@@ -66,7 +96,7 @@
                   @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->title }}</option>
                   @endforeach
-                  
+
                 </select>
               </div>
               {{-- Groups --}}
@@ -78,7 +108,7 @@
                   @foreach ($groups as $group)
                     <option value="{{ $group->id }}">{{ $group->title }}</option>
                   @endforeach
-                  
+
                 </select>
               </div>
               {{-- Tags --}}
@@ -89,7 +119,7 @@
                   @foreach ($tags as $tag)
                     <option value="{{ $tag->id }}">{{ $tag->title }}</option>
                   @endforeach
-                 
+
                 </select>
               </div>
 
@@ -100,7 +130,7 @@
                   @foreach ($colors as $color)
                     <option value="{{ $color->id }}">{{ $color->title }}</option>
                   @endforeach
-                  
+
                 </select>
               </div>
 
