@@ -10,6 +10,9 @@ use App\Models\ProductImage;
 
 class Product extends Model
 {
+
+    use Traits\Filterable;
+
     protected $table = 'products';
     protected $guarded = false;
 
