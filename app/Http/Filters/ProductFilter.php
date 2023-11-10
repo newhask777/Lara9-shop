@@ -13,7 +13,7 @@ class ProductFilter extends AbstractFilter
 
     protected function getCallbacks(): array
     {
-        [
+        return [
             self::CATEGORIES => [$this, 'categories'],
             self::COLORS => [$this, 'colors'],
             self::PRICE => [$this, 'price'],
@@ -24,22 +24,22 @@ class ProductFilter extends AbstractFilter
 
     protected function categories(Builder $builder, $value)
     {
-        $bulder->whereIn('category_id', $value);
+        $builder->whereIn('category_id', $value);
     }
 
     protected function colors(Builder $builder, $value)
     {
-        $bulder->whereIn('color_id', $value);
+        $builder->whereIn('color_id', $value);
     }
 
     protected function price(Builder $builder, $value)
     {
-        $bulder->whereBetween($value['from'], $value['to']);
+        $builder->whereBetween($value['from'], $value['to']);
     }
 
     protected function tags(Builder $builder, $value)
     {
-        $bulder->whereHas('tags', function() use ($value) {
+        $builder->whereHas('tags', function($b) use ($value) {
             $b->whereIn('tag_id', $value);
         });
     }

@@ -14,7 +14,7 @@ trait Filterable
      * @return Bulder
      */
 
-    public function scopeFilter(Builder $builder, FilterInterface $filter)
+    public function scopeFilter(Builder $builder, FilterInterface $filter): Builder
     {
         $filter->apply($builder);
 
