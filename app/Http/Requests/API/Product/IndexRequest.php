@@ -28,6 +28,7 @@ class IndexRequest extends FormRequest
             'colors' => 'nullable|array',
             'prices' => 'nullable|array',
             'tags' => 'nullable|array',
+            'page' => 'required|integer',
         ];
     }
 }

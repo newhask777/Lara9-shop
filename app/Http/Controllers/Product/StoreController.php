@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Product\IndexRequest;
+use App\Http\Requests\Product\StoreRequest;
 use App\Models\ColorProduct;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
-    public function __invoke(IndexRequest $request)
+    public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
 
@@ -22,9 +22,14 @@ class StoreController extends Controller
             $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
         }
 
-
         // dd($data);
-        $productImages = $data['product_images'];
+        if(isset($data["product_images"]) && $data["product_images"] != null)
+        {
+            $productImages = $data['product_images'];
+        }
+        else{
+            $productImages = [];
+        }
 
         $tagsIds = $data['tags'];
         $colorsIds = $data['colors'];
