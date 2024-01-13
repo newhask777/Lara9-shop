@@ -17,58 +17,46 @@ class StoreController extends Controller
     {
         $data = $request->validated();
 
-        if(isset($data["preview_image"]) && $data["preview_image"] != null)
-        {
-            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-        }
+//        dd($data);
 
-        // dd($data);
-        if(isset($data["product_images"]) && $data["product_images"] != null)
-        {
-            $productImages = $data['product_images'];
-        }
-        else{
-            $productImages = [];
-        }
+        $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
 
         $tagsIds = $data['tags'];
         $colorsIds = $data['colors'];
-        unset($data['tags'], $data['colors'], $data['product_images']);
+        unset($data['tags'], $data['colors']);
 
+//        $product = Product::firstOrCreate([
+//            'name' => $data['name'],
+//            'description' => $data['description']
+//        ], $data);
 
-        $product = Product::firstOrCreate([
-            'name'=> $data['name'],
-        ], $data);
+        $product = Product::create([
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'preview_image' => $data['preview_image'],
+            'price' => $data['price'],
+            'count' => $data['count'],
+            'category_id' => $data['category_id'],
+            'group_id' => $data['group_id'],
+        ]);
 
-        foreach($tagsIds as $tagId)
-        {
-            ProductTag::firstOrCreate([
-                'product_id' => $product->id,
-                'tag_id' => $tagId
-            ]);
-        }
+        foreach ($tagsIds as $tagId)
+            {
+                ProductTag::firstOrCreate([
+                    'product_id' => $product->id,
+                    'tag_id' => $tagId
+                ]);
+            }
 
-        foreach($colorsIds as $colorsId)
+        foreach ($colorsIds as $colorId)
         {
             ColorProduct::firstOrCreate([
                 'product_id' => $product->id,
-                'color_id' => $colorsId
+                'color_id' => $colorId
             ]);
         }
 
-        foreach($productImages as $productImage)
-        {
-            $currentImagesCount = ProductImage::where('product_id', $product->id)->count();
-
-            if($currentImagesCount > 3) continue;
-
-            $filePath = Storage::disk('public')->put('images', $productImage);
-
-            ProductImage::create([
-                'product_id' => $product->id,
-                'file_path' => $filePath
-            ]);
-        }
+//        dd($data);
 
         return redirect()->route('product.index');
     }

@@ -47,6 +47,7 @@
               <div class="form-group">
                 <input type="text" value="{{ old('count') }}" name="count" class="form-control" placeholder="Кол-во">
               </div>
+
               {{-- Product Images --}}
               <div class="form-group">
                 <label for="exampleInputFile">Картинка</label>
@@ -87,6 +88,7 @@
                   </div>
                 </div>
               </div>
+
               {{-- Categories --}}
               <div class="form-group">
                 <label>Категория</label>

@@ -11,13 +11,17 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function __invoke(IndexRequest $request)
+    public function __invoke()
     {
-        $data = $request->validated();
+        $products = Product::all();
 
-        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
-
-        $products = Product::filter($filter)->paginate(12, ['*'], 'page', $data['page']);
-        return IndexProductResource::collection($products);
+        return $products;
     }
+//        $data = $request->validated();
+//
+//        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
+//
+//        $products = Product::filter($filter)->paginate(12, ['*'], 'page', $data['page']);
+//        return IndexProductResource::collection($products);
+//    }
 }

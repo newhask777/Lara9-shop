@@ -55,7 +55,13 @@
                                             <td>{{ $product->preview_image }}</td>
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->count }}</td>
-                                            <td>{{ $product->category->title }}</td>
+
+                                            @if(!empty($product->category->title))
+                                                <td>{{ $product->category->title }}</td>
+                                            @else
+                                                <td>No category</td>
+                                            @endif
+
                                             <td>{{ $product->group_id }}</td>
                                         </tr>
                                     @endforeach
